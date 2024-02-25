@@ -4,6 +4,7 @@ import { Bebas_Neue } from "next/font/google";
 import { Navigation } from "./components/";
 
 import "./globals.css";
+import Footer from "./components/Footer";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={`${bebas.variable}`}>
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );
