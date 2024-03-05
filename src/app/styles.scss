@@ -1,0 +1,21 @@
+#home {
+  #video-container {
+    height: 810px;
+  }
+
+  #image-collage {
+    height: 960px;
+    .bg-image {
+        width: 512px;
+        &--horz {
+            height: 50%;
+        }
+        &--vert {
+            height: 100%;
+        }
+    }
+  }
+  #content {
+    max-width: 960px;
+  }
+}
