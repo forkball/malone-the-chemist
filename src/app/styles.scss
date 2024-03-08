@@ -1,21 +1,30 @@
 #home {
   #video-container {
-    height: 810px;
+    height: 1280px;
   }
 
   #image-collage {
-    height: 960px;
+    height: 1470px;
     .bg-image {
         width: 512px;
-        &--horz {
-            height: 50%;
+        &--horz__top {
+            height: 60%;
+        }
+        &--horz__bot {
+            height: 40%;
         }
         &--vert {
             height: 100%;
         }
     }
   }
+
   #content {
     max-width: 960px;
+  }
+
+  .video {
+    height: 480px;
+    width: 720px;
   }
 }

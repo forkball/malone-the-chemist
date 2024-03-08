@@ -5,7 +5,8 @@ export default function Navigation() {
     <div
       id="navigation"
       className="bg-primary p-2 font-bebas \
-                 border-b border-black"
+                 border-b border-black \
+                 fixed top-0 z-20 w-full"
     >
       <div className="content flex gap-8 ">
         <span>
