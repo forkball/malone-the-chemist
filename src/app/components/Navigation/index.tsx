@@ -6,9 +6,10 @@ export default function Navigation() {
       id="navigation"
       className="bg-primary p-2 font-bebas \
                  border-b border-black \
-                 fixed top-0 z-20 w-full"
+                 fixed top-0 z-20 w-full \
+                 flex justify-center"
     >
-      <div className="content flex gap-8 ">
+      <div className="content flex gap-8 w-full">
         <span>
           <Link href="/">Malone the Chemist</Link>
         </span>

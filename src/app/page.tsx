@@ -6,7 +6,7 @@ export default function Home() {
       id="home"
       className="flex min-h-screen flex-col justify-between relative"
     >
-      <div id="video-container" className="absolute w-full top-0 left-0">
+      <div id="video-container" className="absolute w-full top-0 left-0 border-b border-black">
         <video
           src={"/bg.mp4"}
           className="w-full h-full object-cover"
