@@ -1,17 +1,18 @@
 #home {
   #video-container {
-    height: 1280px;
+    height: 1560px;
   }
 
   #image-collage {
     height: 1470px;
+    overflow: hidden;
     .bg-image {
-        width: 512px;
+        width: 640px;
         &--horz__top {
-            height: 60%;
+            height: 55%;
         }
         &--horz__bot {
-            height: 40%;
+            height: 45%;
         }
         &--vert {
             height: 100%;

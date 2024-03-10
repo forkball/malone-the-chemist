@@ -1,12 +1,17 @@
+import Image from "next/image";
+import Button from "./components/Button";
 import "./styles.scss";
 
 export default function Home() {
   return (
     <main
       id="home"
-      className="flex min-h-screen flex-col justify-between relative"
+      className="flex min-h-screen flex-col justify-between relative overflow-hidden"
     >
-      <div id="video-container" className="absolute w-full top-0 left-0 border-b border-black">
+      <div
+        id="video-container"
+        className="absolute w-full top-0 left-0 border-b border-black"
+      >
         <video
           src={"/bg.mp4"}
           className="w-full h-full object-cover"
@@ -16,45 +21,69 @@ export default function Home() {
         />
       </div>
       <div className="z-10 flex flex-col gap-12 w-full items-center mt-12">
-        <div className="content">
+        <div className="content flex flex-col">
           <h1
             className="flex flex-col text-8xl text-center justify-center \
                        font-bebas text-white h-72"
           >
             MALONE <span className="text-4xl">THE CHEMIST</span>
           </h1>
+          <Button label="SEE WHAT I'M UP TO" />
         </div>
-        <div className="content flex h-96 w-full">
-          <div className="flex flex-col gap-2 mr-auto ml-4">
-          <h2 className="font-bebas text-4xl text-white">LISTEN TO ME</h2>
-          <ol className="flex flex-col gap-2 text-black font-bold">
-            <li>SPOTIFY</li>
-            <li>APPLE MUSIC</li>
-            <li>SOUNDCLOUD</li>
-            <li>YOUTUBE</li>
-          </ol>
-        </div></div>
-        <div className="flex bg-black w-full justify-center relative">
+        <div className="h-56"></div>
+        <div className="content flex flex-col h-96 w-full">
+          <div className="px-8">
+            <h2 className="font-bebas text-4xl text-white mb-4">
+              LISTEN TO ME
+            </h2>
+            <ol className="flex flex-col gap-2 text-black font-bebas text-2xl">
+              <li>SPOTIFY</li>
+              <li>APPLE MUSIC</li>
+              <li>SOUNDCLOUD</li>
+              <li>YOUTUBE</li>
+            </ol>
+          </div>
+        </div>
+        <div className="h-56"></div>
+        <div className="flex bg-primary w-full justify-center relative">
           <div
             id="image-collage"
-            className="flex justify-center gap-8 p-8 h-full absolute"
+            className="justify-center gap-8 p-8 h-full absolute hidden md:flex"
           >
-            <div className="flex gap-8 mt-48">
-              <div className="bg-image bg-image--vert h-full bg-primary" />
-              <div className="bg-image flex flex-col gap-8">
-                <div className="bg-image--horz__top bg-primary" />
-                <div className="bg-image--horz__bot bg-primary" />
+            <div className="flex gap-8 mt-24 mb-36">
+              <Image
+                className="bg-image bg-image--vert h-full object-cover opacity-50"
+                width={4000}
+                height={6000}
+                src="/landing-bg1.png"
+                alt="landing background image of malone"
+              />
+              <div className="bg-image flex flex-col gap-8 mt-8">
+                <Image
+                  className="bg-image--horz__top h-full object-cover opacity-50"
+                  width={4000}
+                  height={6000}
+                  src="/landing-bg3.png"
+                  alt="landing background image of malone"
+                />
+                <Image
+                  className="bg-image--horz__bot h-full object-cover opacity-50"
+                  width={4000}
+                  height={6000}
+                  src="/landing-bg2.png"
+                  alt="landing background image of malone"
+                />
               </div>
             </div>
           </div>
-          <div className="content flex flex-col items-center w-full z-10 -mt-16">
+          <div className="content flex flex-col items-center w-full z-10 -mt-56">
             <h2
-              className="font-bebas text-4xl mb-12 \
+              className="font-bebas text-4xl \
                          text-center text-white"
             >
               WHAT I&apos;M UP TO
             </h2>
-            <div className="flex flex-col gap-4 w-full items-center my-10">
+            <div className="flex flex-col gap-8 w-full items-center my-10">
               <div className="bg-secondary video" />
               <div className="bg-secondary video" />
               <div className="bg-secondary video" />
