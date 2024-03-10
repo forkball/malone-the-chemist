@@ -9,13 +9,16 @@
     .bg-image {
         width: 640px;
         &--horz__top {
-            height: 55%;
+            height: 60%;
+            min-height: 640px;
         }
         &--horz__bot {
-            height: 45%;
+            height: 40%;
+            min-height: 550px;
         }
         &--vert {
             height: 100%;
+            min-height: 1200px;
         }
     }
   }

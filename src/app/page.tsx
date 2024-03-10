@@ -50,15 +50,17 @@ export default function Home() {
             id="image-collage"
             className="justify-center gap-8 p-8 h-full absolute hidden md:flex"
           >
-            <div className="flex gap-8 mt-24 mb-36">
-              <Image
-                className="bg-image bg-image--vert h-full object-cover opacity-50"
-                width={4000}
-                height={6000}
-                src="/landing-bg1.png"
-                alt="landing background image of malone"
-              />
-              <div className="bg-image flex flex-col gap-8 mt-8">
+            <div className="flex gap-4 mt-24 mb-36">
+              <div>
+                <Image
+                  className="bg-image bg-image--vert h-full object-cover opacity-50"
+                  width={4000}
+                  height={6000}
+                  src="/landing-bg1.png"
+                  alt="landing background image of malone"
+                />
+              </div>
+              <div className="bg-image flex flex-col gap-4 mt-16">
                 <Image
                   className="bg-image--horz__top h-full object-cover opacity-50"
                   width={4000}
@@ -76,14 +78,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="content flex flex-col items-center w-full z-10 -mt-56">
+          <div className="content flex flex-col items-center w-full z-10 -mt-56 mb-48">
             <h2
               className="font-bebas text-4xl \
                          text-center text-white"
             >
               WHAT I&apos;M UP TO
             </h2>
-            <div className="flex flex-col gap-8 w-full items-center my-10">
+            <div className="flex flex-col gap-8 w-full items-center mt-10 invisible">
               <div className="bg-secondary video" />
               <div className="bg-secondary video" />
               <div className="bg-secondary video" />
