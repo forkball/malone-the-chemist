@@ -85,10 +85,10 @@ export default function Home() {
             >
               WHAT I&apos;M UP TO
             </h2>
-            <div className="flex flex-col gap-8 w-full items-center mt-10 invisible">
-              <div className="bg-secondary video" />
-              <div className="bg-secondary video" />
-              <div className="bg-secondary video" />
+            <div className="flex flex-col gap-8 w-full items-center mt-10">
+              <div className="bg-secondary video">video embed</div>
+              <div className="bg-secondary video">video embed</div>
+              <div className="bg-secondary video">video embed</div>
             </div>
           </div>
         </div>
