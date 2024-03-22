@@ -54,25 +54,25 @@ export default function Home() {
               <div>
                 <Image
                   className="bg-image bg-image--vert h-full object-cover opacity-50"
-                  width={4000}
-                  height={6000}
-                  src="/landing-bg1.png"
+                  width={650}
+                  height={1200}
+                  src="/landing-bg1.jpg"
                   alt="landing background image of malone"
                 />
               </div>
               <div className="bg-image flex flex-col gap-4 mt-16">
                 <Image
                   className="bg-image--horz__top h-full object-cover opacity-50"
-                  width={4000}
-                  height={6000}
-                  src="/landing-bg3.png"
+                  width={627}
+                  height={640}
+                  src="/landing-bg3.jpg"
                   alt="landing background image of malone"
                 />
                 <Image
                   className="bg-image--horz__bot h-full object-cover opacity-50"
-                  width={4000}
-                  height={6000}
-                  src="/landing-bg2.png"
+                  width={627}
+                  height={550}
+                  src="/landing-bg2.jpg"
                   alt="landing background image of malone"
                 />
               </div>

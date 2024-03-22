@@ -5,7 +5,7 @@ export default function Introduction() {
     <main className="flex min-h-screen flex-col items-center w-full bg-primary">
       <div
         className="content w-full flex flex-col md:flex-row space-between items-center \
-                   mt-24 px-4 pb-12 gap-12"
+                   mt-24 px-4 lg:pl-4 lg:pr-0 pb-16 gap-12"
       >
         <div className="w-full md:w-60 md:mr-auto text-left">
           <h1 className="flex flex-col text-8xl font-bebas">MALONE</h1>
