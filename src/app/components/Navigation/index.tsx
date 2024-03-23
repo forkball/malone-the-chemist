@@ -4,7 +4,7 @@ export default function Navigation() {
   return (
     <div
       id="navigation"
-      className="bg-primary p-2 font-bebas \
+      className="bg-primary p-2 px-4 font-bebas \
                  border-b border-black \
                  fixed top-0 z-20 w-full \
                  flex justify-center"

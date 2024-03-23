@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "./components/Button";
 import "./styles.scss";
+import ListeningLinks from "./components/ListeningLinks";
 
 export default function Home() {
   return (
@@ -12,13 +13,10 @@ export default function Home() {
         id="video-container"
         className="absolute w-full top-0 left-0 border-b border-black"
       >
-        <video
-          src={"/bg.mp4"}
-          className="w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-        />
+        <video className="w-full h-full object-cover" autoPlay loop muted>
+          <source src="/bg.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       <div className="z-10 flex flex-col gap-12 w-full items-center mt-12">
         <div className="content flex flex-col">
@@ -31,19 +29,7 @@ export default function Home() {
           <Button label="SEE WHAT I'M UP TO" />
         </div>
         <div className="h-56"></div>
-        <div className="content flex flex-col h-96 w-full">
-          <div className="px-8">
-            <h2 className="font-bebas text-4xl text-white mb-4">
-              LISTEN TO ME
-            </h2>
-            <ol className="flex flex-col gap-2 text-black font-bebas text-2xl">
-              <li>SPOTIFY</li>
-              <li>APPLE MUSIC</li>
-              <li>SOUNDCLOUD</li>
-              <li>YOUTUBE</li>
-            </ol>
-          </div>
-        </div>
+        <ListeningLinks />
         <div className="h-56"></div>
         <div className="flex bg-primary w-full justify-center relative">
           <div

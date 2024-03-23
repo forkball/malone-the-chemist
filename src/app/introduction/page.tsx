@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { links } from "../constants";
+import ListeningLinks from "../components/ListeningLinks";
 
 export default function Introduction() {
   return (
@@ -19,23 +21,15 @@ export default function Introduction() {
           </p>
         </div>
         <Image
-          src={"/about.png"}
+          src={"/about.jpg"}
           alt="the chemist pondering"
           width={540}
           height={340}
-          className="w-full md:w-3/5 opacity-75 rounded"
+          className="h-full w-full md:w-3/5 opacity-75 rounded"
         />
       </div>
       <div className="border-b border-black w-full"></div>
-      <div className="content flex flex-col h-96 w-full px-4 pt-12">
-        <h2 className="font-bebas text-4xl text-white mb-4">LISTEN TO ME</h2>
-        <ol className="flex flex-col gap-2 text-black font-bebas text-2xl">
-          <li>SPOTIFY</li>
-          <li>APPLE MUSIC</li>
-          <li>SOUNDCLOUD</li>
-          <li>YOUTUBE</li>
-        </ol>
-      </div>
+      <ListeningLinks />
     </main>
   );
 }
