@@ -6,7 +6,7 @@ export default function Credits() {
           <h1 className="flex flex-col text-8xl font-bebas">CREDITS</h1>
         </div>
         <div className="flex justify-start w-full">
-          <div className="border">
+          <div className="border-y border-black w-full py-4">
             <h2>STARZZZ</h2>
             <p>Malone the Chemist</p>
           </div>

@@ -5,22 +5,13 @@ export default function Navigation() {
     <div
       id="navigation"
       className="bg-primary p-2 px-4 font-bebas \
-                 border-b border-black \
-                 fixed top-0 z-20 w-full \
+                 border-b border-black w-full \
                  flex justify-center"
     >
       <div className="content flex gap-8 w-full">
         <span>
           <Link href="/">Malone the Chemist</Link>
         </span>
-        <div className="flex gap-8">
-          <span>
-            <Link href="/introduction">Introduction</Link>
-          </span>
-          <span>
-            <Link href="/contact">Contact</Link>
-          </span>
-        </div>
       </div>
     </div>
   );

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import Button from "../components/Button";
-import Input from "../components/Input";
+import Button from "../components/common/Button";
+import Input from "../components/common/Input";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
