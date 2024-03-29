@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Bebas_Neue } from "next/font/google";
 
-import { Navigation } from "./components/";
+import { Navigation, Footer } from "@/components";
 
 import "./globals.css";
-import Footer from "./components/Footer";
 
 const bebas = Bebas_Neue({
   weight: "400",

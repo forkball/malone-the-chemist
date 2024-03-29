@@ -1,4 +1,4 @@
-import { links } from "@/app/constants";
+import { links } from "@/constants";
 
 export default function ListeningLinks() {
   return (

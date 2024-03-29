@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { links } from "../constants";
-import ListeningLinks from "../components/ListeningLinks";
+import ListeningLinks from "@/components/ListeningLinks";
 
 export default function Introduction() {
   return (

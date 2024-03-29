@@ -1,9 +1,10 @@
-import Image from "next/image";
-import Button from "./components/common/Button";
-import "./styles.scss";
-import ListeningLinks from "./components/ListeningLinks";
-import VideoBackground from "./components/VideoBackground";
 import { Suspense } from "react";
+import Image from "next/image";
+import ListeningLinks from "@/components/ListeningLinks";
+import VideoBackground from "@/components/VideoBackground";
+import Button from "@/components/common/Button";
+
+import "./styles.scss";
 
 export default function Home() {
   return (
@@ -11,7 +12,11 @@ export default function Home() {
       id="home"
       className="flex min-h-screen flex-col justify-between relative overflow-hidden"
     >
-      <Suspense fallback={<p className="text-black font-4xl mb-12 bg-black">Loading video...</p>}>
+      <Suspense
+        fallback={
+          <p className="text-black font-4xl mb-12 bg-black">Loading video...</p>
+        }
+      >
         <VideoBackground />
         <div className="z-10 flex flex-col gap-12 w-full items-center mt-12">
           <div className="content flex flex-col">
