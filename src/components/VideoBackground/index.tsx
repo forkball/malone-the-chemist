@@ -1,12 +1,7 @@
 import { list } from "@vercel/blob";
+import "./styles.scss";
 
 export default async function VideoBackground() {
-  // const { blobs } = await list({
-  //   prefix: "bg",
-  //   limit: 1,
-  // });
-  // const { url } = blobs[0];
-  // console.log(url)
   return (
     <div
       id="video-container"
