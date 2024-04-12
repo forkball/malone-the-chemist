@@ -10,7 +10,7 @@ export default function PhotoBackground({ className }: Props) {
   return (
     <div
       id="image-collage"
-      className={`justify-center gap-8 px-8 py-4 h-full hidden md:flex ${className}`}
+      className={`justify-center gap-8 px-8 h-full hidden md:flex ${className}`}
     >
       <div className="flex gap-8">
         <div>
@@ -22,7 +22,7 @@ export default function PhotoBackground({ className }: Props) {
             alt="landing background image of malone"
           />
         </div>
-        <div className="bg-image flex flex-col gap-8 mt-16">
+        <div className="bg-image flex flex-col gap-8">
           <Image
             className="bg-image--horz__top h-full object-cover opacity-50 object-left"
             width={627}

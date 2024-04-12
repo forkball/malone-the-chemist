@@ -6,7 +6,7 @@ export default function Navigation() {
       id="navigation"
       className="bg-primary p-2 px-4 font-bebas \
                  border-b border-black w-full \
-                 flex justify-center"
+                 flex justify-center fixed z-20"
     >
       <div className="content flex gap-8 w-full">
         <span>
