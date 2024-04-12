@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import "./styles.scss";
 
-export default function VideoBackground({ setLoading }) {
+interface Props {
+  setLoading: (state: boolean) => void
+}
+
+export default function VideoBackground({ setLoading }: Props) {
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
   }, []);
