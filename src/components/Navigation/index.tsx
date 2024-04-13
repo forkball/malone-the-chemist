@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Navigation() {
@@ -10,7 +11,9 @@ export default function Navigation() {
     >
       <div className="content flex gap-8 w-full">
         <span>
-          <Link href="/">Malone the Chemist</Link>
+          <Link href="/">
+            <Image src={"/malone-logo-02.png"} alt="Malone" height={20} width={40}></Image>
+          </Link>
         </span>
       </div>
     </div>

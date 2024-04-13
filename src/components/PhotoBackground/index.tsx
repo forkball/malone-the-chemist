@@ -15,7 +15,7 @@ export default function PhotoBackground({ className }: Props) {
       <div className="flex gap-8">
         <div>
           <Image
-            className="bg-image bg-image--vert h-full object-cover opacity-50 object-right"
+            className="bg-image bg-image--vert h-full object-cover opacity-50"
             width={650}
             height={1200}
             src="/landing-bg1.jpg"
@@ -24,7 +24,7 @@ export default function PhotoBackground({ className }: Props) {
         </div>
         <div className="bg-image flex flex-col gap-8">
           <Image
-            className="bg-image--horz__top h-full object-cover opacity-50 object-left"
+            className="bg-image--horz__top h-full object-cover opacity-50 object-right"
             width={627}
             height={640}
             src="/landing-bg3.jpg"

@@ -1,13 +1,14 @@
 "use client";
 
+import Image from "next/image";
+import { useCallback, useState } from "react";
+
+import Button from "@/components/common/Button";
 import ListeningLinks from "@/components/ListeningLinks";
 import VideoBackground from "@/components/VideoBackground";
-import Button from "@/components/common/Button";
+import PhotoBackground from "@/components/PhotoBackground";
 
 import "./styles.scss";
-import PhotoBackground from "@/components/PhotoBackground";
-import { useCallback, useState } from "react";
-import { Navigation } from "@/components";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -22,6 +23,13 @@ export default function Home() {
     "video",
   ];
 
+  const handleLandingCta = () => {
+    document?.getElementById("what-im-up-to")?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  };
+
   const renderPhotoBg = useCallback(() => {
     const num = Math.ceil(videos.length / 3);
 
@@ -34,6 +42,13 @@ export default function Home() {
     return result;
   }, [videos]);
 
+  const renderLoading = () => 
+    loading && (
+      <div className="h-screen w-screen bg-primary fixed z-20 flex items-center justify-center">
+        <Image src={"/malone-logo-02.png"} alt="Loading the Chemist" width={40} height={20} />
+      </div>
+    )
+
   return (
     <main
       id="home"
@@ -42,9 +57,7 @@ export default function Home() {
       }
     >
       <VideoBackground setLoading={setLoading} />
-      {loading && (
-        <div className="h-screen w-screen bg-primary fixed z-20"></div>
-      )}
+      {renderLoading()}
       <div
         className={`z-10 flex flex-col gap-12 w-full items-center mt-12 ${
           loading && "hidden"
@@ -55,9 +68,17 @@ export default function Home() {
             className="flex flex-col text-8xl text-center justify-center \
                        font-bebas text-white h-72"
           >
-            MALONE <span className="text-4xl">THE CHEMIST</span>
+            <Image
+              src={"/malone-logo-01.png"}
+              alt="Malone"
+              width={480}
+              height={140}
+            />
+            <span className="text-4xl">THE CHEMIST</span>
           </h1>
-          <Button label="SEE WHAT I'M UP TO" onClick={() => {}} />
+          <div className="flex justify-center">
+            <Button label="SEE WHAT I'M UP TO" onClick={handleLandingCta} />
+          </div>
         </div>
         <div className="h-56"></div>
         <ListeningLinks />
@@ -66,7 +87,7 @@ export default function Home() {
           <div className="flex flex-col absolute">{renderPhotoBg()}</div>
           <div
             id="what-im-up-to"
-            className="content flex flex-col items-center w-full z-10 -mt-56 mb-48"
+            className="content flex flex-col items-center w-full z-10 -mt-56 mb-48 pt-24"
           >
             <h2
               className="font-bebas text-4xl \

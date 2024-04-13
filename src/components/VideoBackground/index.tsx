@@ -6,9 +6,11 @@ interface Props {
 }
 
 export default function VideoBackground({ setLoading }: Props) {
+  
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
-  }, []);
+  }, [setLoading]);
+
   return (
     <div
       id="video-container"
