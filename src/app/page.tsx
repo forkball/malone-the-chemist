@@ -51,7 +51,7 @@ export default function Home() {
   );
 
   const renderVideoFeed = () => (
-    <div className="flex bg-primary w-full justify-center relative">
+    <div className="flex bg-gradient-to-r from-primary to-secondary w-full justify-center relative">
       <div className="flex flex-col absolute">{renderPhotoBg()}</div>
       <div
         id="what-im-up-to"

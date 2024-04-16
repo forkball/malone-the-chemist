@@ -1,27 +1,27 @@
 import { fetchGraphQL } from "@/lib/contentful/fetch";
 import { SONG_COLLECTION_QUERY } from "@/lib/contentful/queries/song";
+import Image from "next/image";
 
 export default async function Credits() {
   const { data } = await fetchGraphQL(SONG_COLLECTION_QUERY);
   const { items } = (data as SongCollection).songCollection;
-  
+
   return (
-    <main className="flex min-h-screen flex-col items-center w-full gap-4 bg-primary p-4">
+    <main className="flex min-h-screen flex-col items-center w-full gap-4 bg-gradient-to-r from-primary to-secondary p-4">
       <div className="content w-full flex flex-col space-between mt-24 items-center mb-8">
-        <div className="mr-auto">
+        <div className="mr-auto mb-8">
           <h1 className="flex flex-col text-8xl font-bebas">CREDITS</h1>
         </div>
-        <div className="flex flex-col justify-start w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {items.map((item, index) => (
-            <div
-              key={item.sys.id}
-              className={`border-t border-black w-full py-4 ${
-                index === data.songCollection.items.length - 1 && "border-b"
-              }`}
-            >
-              <h2>{item.title}</h2>
-              <p>Malone the Chemist</p>
-            </div>
+            <Image
+              key={item.title}
+              className="h-auto max-w-full rounded-lg w-full opacity-50 hover:opacity-100"
+              src={item.image?.url}
+              alt={item.image?.description}
+              width={960}
+              height={1280}
+            />
           ))}
         </div>
       </div>

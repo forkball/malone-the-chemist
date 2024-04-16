@@ -6,6 +6,11 @@ const SONG_COLLECTION_QUERY = `
                     id
                 }
                 title
+                image {
+                  title
+                  url
+                  description
+                }
             }
         }
     }

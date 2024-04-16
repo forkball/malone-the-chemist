@@ -3,6 +3,11 @@ interface Song {
     id: string;
   };
   title: string;
+  image: {
+    url: string;
+    title: string;
+    description: string;
+  }
 }
 
 interface SongCollection {
