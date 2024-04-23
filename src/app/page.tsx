@@ -1,26 +1,29 @@
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import Link from "next/link";
 
-import ListeningLinks from "@/components/ListeningLinks";
-import VideoBackground from "@/components/VideoBackground";
-import PhotoBackground from "@/components/PhotoBackground";
-import LandingCTA from "@/components/LandingCTA";
-import Divider from "@/components/common/Divider";
+import { LandingCTA, PhotoBackground, VideoBackground } from "@/components";
+import { Divider } from "@/components/common";
+
+import { links } from "@/constants";
+
+import { fetchRecentReleases } from "@/lib/spotify";
 
 import "./styles.scss";
 
-export default function Home() {
+export default async function Home() {
+  const albums = await fetchRecentReleases();
+
   const videos = [
-    "video",
-    "video",
-    "video",
-    "video",
-    "image",
-    "video",
-    "video",
+    "video-1",
+    "video-2",
+    "video-3",
+    "video-4",
+    "image-5",
+    "video-6",
+    "video-7",
   ];
 
-  const renderPhotoBg = useCallback(() => {
+  const renderPhotoBg = () => {
     const num = Math.ceil(videos.length / 3);
 
     const result = [];
@@ -30,7 +33,7 @@ export default function Home() {
     }
 
     return result;
-  }, [videos]);
+  };
 
   const renderLanding = () => (
     <div className="content flex flex-col">
@@ -47,6 +50,55 @@ export default function Home() {
         <span className="text-4xl">THE CHEMIST</span>
       </h1>
       <LandingCTA ctaId="what-im-up-to" />
+    </div>
+  );
+
+  const renderPlatforms = () => (
+    <div className="flex flex-col h-48 md:h-96 w-96 shrink-0 px-4 lg:px-0 justify-center">
+      <h2 className="font-bebas text-4xl text-white mb-4">LISTEN TO ME</h2>
+      <ol className="flex flex-col gap-2 text-white font-bebas text-2xl">
+        <li>
+          <a href={links.spotify} target="_blank">
+            SPOTIFY
+          </a>
+        </li>
+        <li>
+          <a href={links.apple_music} target="_blank">
+            APPLE MUSIC
+          </a>
+        </li>
+        <li>
+          <a href={links.soundcloud} target="_blank">
+            SOUNDCLOUD
+          </a>
+        </li>
+        <li>
+          <a href={links.youtube} target="_blank">
+            YOUTUBE
+          </a>
+        </li>
+      </ol>
+    </div>
+  );
+
+  const renderRecentAlbums = () => (
+    <div className="w-full flex flex-row gap-4 overflow-x-scroll md:overflow-visible pb-4 no-scrollbar">
+      {albums.map((album) => (
+        <div key={album.id} className="w-48 h-48 grow-0 shrink-0">
+          <Link
+            href={`https://open.spotify.com/album/${album.id}`}
+            target="_blank"
+          >
+            <Image
+              alt={album.name}
+              src={album.images[0].url}
+              width={250}
+              height={250}
+              className="w-full h-full opacity:100 md:opacity-50 hover:opacity-100"
+            ></Image>
+          </Link>
+        </div>
+      ))}
     </div>
   );
 
@@ -82,10 +134,13 @@ export default function Home() {
       }
     >
       <VideoBackground />
-      <div className={`z-10 flex flex-col gap-12 w-full items-center mt-12 `}>
+      <div className={`z-10 flex flex-col gap-12 w-full items-center mt-6 `}>
         {renderLanding()}
-        <Divider />
-        <ListeningLinks />
+        <Divider height={"h-24 md:h-56"} />
+        <div className="content flex flex-col md:flex-row md:items-center w-full gap-12 md:gap-0 py-4 bg-opacity-50 md:bg-opacity-0">
+          {renderPlatforms()}
+          {renderRecentAlbums()}
+        </div>
         <Divider />
         {renderVideoFeed()}
       </div>

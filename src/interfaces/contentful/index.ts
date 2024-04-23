@@ -1,4 +1,4 @@
-interface ContentfulResponse {
-    status: number;
-    data: any;
+export interface ContentFetch {
+  status: number;
+  data: any;
 }

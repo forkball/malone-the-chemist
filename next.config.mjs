@@ -8,6 +8,12 @@ const nextConfig = {
             port: '',
             pathname: '/inrhvxpeuxn5/**',
           },
+          {
+            protocol: 'https',
+            hostname: 'i.scdn.co',
+            port: '',
+            pathname: '/image/**',
+          },
         ],
       },
 };

@@ -1,4 +1,4 @@
-interface Song {
+export interface Song {
   sys: {
     id: string;
   };
@@ -7,10 +7,10 @@ interface Song {
     url: string;
     title: string;
     description: string;
-  }
+  };
 }
 
-interface SongCollection {
+export interface SongsQuery {
   songCollection: {
     items: Song[];
   };
