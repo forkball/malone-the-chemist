@@ -8,6 +8,10 @@ export interface Song {
     title: string;
     description: string;
   };
+  spotify: string;
+  appleMusic: string;
+  youtube: string;
+  latest: boolean;
 }
 
 export interface SongsQuery {

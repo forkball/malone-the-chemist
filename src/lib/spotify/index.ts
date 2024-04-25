@@ -25,7 +25,6 @@ async function generateTokens(): Promise<Tokens> {
 
 export async function fetchRecentReleases(): Promise<Album[]> {
   const { access_token } = await generateTokens();
-  console.log(access_token);
   const response = await fetch(
     `https://api.spotify.com/v1/artists/${process.env.SPOTIFY_ARTIST_ID}/albums?include_groups=single`,
     {

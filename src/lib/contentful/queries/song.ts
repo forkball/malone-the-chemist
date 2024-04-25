@@ -2,10 +2,12 @@ const SONG_COLLECTION_QUERY = `
     query {
         songCollection {
             items {
-                sys {
-                    id
-                }
                 title
+                latest
+                spotify
+                appleMusic
+                youtube
+                soundcloud
                 image {
                   title
                   url
