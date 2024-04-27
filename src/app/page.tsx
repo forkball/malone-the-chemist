@@ -86,7 +86,7 @@ export default async function Home() {
     <div className="w-full flex flex-col">
       <div
         id="album-view"
-        className="w-full flex flex-row gap-4 overflow-x-scroll pb-2"
+        className="w-full flex flex-row gap-4 overflow-x-scroll md:overflow-x-visible pb-2"
       >
         {albums.map((album) => (
           <div key={album.id} className="album w-48 h-48 grow-0 shrink-0">
