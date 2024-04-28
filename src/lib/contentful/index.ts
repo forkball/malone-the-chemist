@@ -13,7 +13,6 @@ export async function fetchGraphQL(query: string): Promise<ContentFetch> {
         body: JSON.stringify({ query }),
       }
     );
-
     return await response.json();
   } catch (e) {
     throw e;

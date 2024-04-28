@@ -11,6 +11,10 @@ export interface Song {
   spotify: string;
   appleMusic: string;
   youtube: string;
+  soundcloud: string;
+  tidal: string;
+  amazonMusic: string;
+  mediaLinks: string[];
   latest: boolean;
 }
 

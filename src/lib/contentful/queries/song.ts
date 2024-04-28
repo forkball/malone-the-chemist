@@ -8,6 +8,9 @@ const SONG_COLLECTION_QUERY = `
                 appleMusic
                 youtube
                 soundcloud
+                amazonMusic
+                tidal
+                mediaLinks
                 image {
                   title
                   url
