@@ -7,12 +7,14 @@ import { Divider } from "@/components/common";
 import { links } from "@/constants";
 
 import { fetchRecentReleases } from "@/lib/spotify";
+import { fetchRecentVideos } from "@/lib/youtube";
 
 import "./styles.scss";
-import ScrollControl from "@/components/ScrollControl";
 
 export default async function Home() {
   const albums = await fetchRecentReleases();
+  const youtubeReleases = await fetchRecentVideos();
+  console.log(youtubeReleases)
 
   const videos = [
     "video-1",
@@ -123,10 +125,14 @@ export default async function Home() {
           WHAT I&apos;M UP TO
         </h2>
         <div className="flex flex-col gap-8 w-full items-center mt-10">
-          {videos.map((alt) => (
-            <div key={alt} className="border video">
-              {alt}
-            </div>
+          {youtubeReleases.map(({id}) => (
+            <iframe
+            key={id.videoId}
+            width={720}
+            height={420}
+            src={`https://www.youtube.com/embed/${id.videoId}`}
+            className="md:w-3/4"
+          ></iframe>
           ))}
         </div>
       </div>
