@@ -1,4 +1,4 @@
-import { SongsQuery } from "@/interfaces/contentful/song";
+import { SongsQuery } from "@/interfaces/contentful/";
 import { fetchGraphQL } from "@/lib/contentful";
 import { SONG_COLLECTION_QUERY } from "@/lib/contentful/queries/song";
 import { fetchRecentReleases } from "@/lib/spotify";
