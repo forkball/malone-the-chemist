@@ -14,25 +14,14 @@ import "./styles.scss";
 export default async function Home() {
   const albums = await fetchRecentReleases();
   const youtubeReleases = await fetchRecentVideos();
-  console.log(youtubeReleases)
-
-  const videos = [
-    "video-1",
-    "video-2",
-    "video-3",
-    "video-4",
-    "image-5",
-    "video-6",
-    "video-7",
-  ];
 
   const renderPhotoBg = () => {
-    const num = Math.ceil(videos.length / 3);
+    const num = Math.max(0,Math.ceil(youtubeReleases?.length / 3));
 
     const result = [];
 
     for (var i = 0; i < num; i++) {
-      result.push(<PhotoBackground className={"mt-8"} />);
+      result.push(<PhotoBackground key={`bg-image-${i}`}className={"mt-8"} />);
     }
 
     return result;
@@ -107,7 +96,6 @@ export default async function Home() {
           </div>
         ))}
       </div>
-      {/* <ScrollControl scrollViewId="album-view" /> */}
     </div>
   );
 
@@ -125,7 +113,7 @@ export default async function Home() {
           WHAT I&apos;M UP TO
         </h2>
         <div className="flex flex-col gap-8 w-full items-center mt-10">
-          {youtubeReleases.map(({id}) => (
+          {youtubeReleases?.map(({id}) => (
             <iframe
             key={id.videoId}
             width={720}

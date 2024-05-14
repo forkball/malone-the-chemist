@@ -13,7 +13,7 @@ const bebas = Bebas_Neue({
 
 export const metadata: Metadata = {
   title: "Malone the Chemist",
-  description: "This description needs to be updated",
+  description: "Musical Pop Sensation",
 };
 
 export default function RootLayout({
