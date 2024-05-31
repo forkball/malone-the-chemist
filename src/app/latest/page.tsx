@@ -1,7 +1,6 @@
 import { SongsQuery } from "@/interfaces/contentful/";
 import { fetchGraphQL } from "@/lib/contentful";
 import { SONG_COLLECTION_QUERY } from "@/lib/contentful/queries/song";
-import { fetchRecentReleases } from "@/lib/spotify";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -70,7 +69,7 @@ export default async function Latest() {
       )}
     </>
   );
-  
+
   return (
     <main
       id="home"
