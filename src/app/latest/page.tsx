@@ -16,9 +16,10 @@ import {
 import { SiTidal } from "react-icons/si";
 
 export default async function Latest() {
-  const latest = (await fetchRecentReleases())[0];
   const { data } = await fetchGraphQL(SONG_COLLECTION_QUERY);
   const {
+    title,
+    albumArt,
     spotify,
     appleMusic,
     youtube,
@@ -69,7 +70,7 @@ export default async function Latest() {
       )}
     </>
   );
-
+  
   return (
     <main
       id="home"
@@ -82,13 +83,13 @@ export default async function Latest() {
       <div className="content flex flex-col items-center mt-24 w-full">
         <div className="flex flex-col w-full mb-8 gap-2 justify-center items-center">
           <h1 className="text-8xl text-black font-bebas text-center">
-            {latest.name}
+            {title}
           </h1>
           <div className="hidden md:flex gap-4 justify-center">{renderIcons()}</div>
         </div>
         <Image
-          src={latest.images[0].url}
-          alt={latest.name}
+          src={albumArt.url}
+          alt={albumArt.description}
           height={1000}
           width={1000}
           className="w-3/4"

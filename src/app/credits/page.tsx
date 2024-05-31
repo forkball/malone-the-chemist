@@ -18,8 +18,8 @@ export default async function Credits() {
             <Image
               key={item.title}
               className="h-auto max-w-full rounded-lg w-full opacity-100 md:opacity-50 hover:opacity-100"
-              src={item.image?.url}
-              alt={item.image?.description}
+              src={item.creditsImage?.url}
+              alt={item.creditsImage?.description}
               width={960}
               height={1280}
             />

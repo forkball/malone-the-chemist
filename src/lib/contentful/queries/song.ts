@@ -11,7 +11,12 @@ const SONG_COLLECTION_QUERY = `
                 amazonMusic
                 tidal
                 mediaLinks
-                image {
+                creditsImage {
+                  title
+                  url
+                  description
+                }
+                albumArt {
                   title
                   url
                   description

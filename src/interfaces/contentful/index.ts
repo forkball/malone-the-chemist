@@ -8,7 +8,12 @@ export interface Song {
     id: string;
   };
   title: string;
-  image: {
+  albumArt: {
+    url: string;
+    title: string;
+    description: string;
+  };
+  creditsImage: {
     url: string;
     title: string;
     description: string;
