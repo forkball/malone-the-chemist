@@ -19,8 +19,8 @@ export interface Song {
   soundcloud: string;
   tidal: string;
   amazonMusic: string;
-  mediaLinks: string[];
   latest: boolean;
+  mediaLinks?: string[];
 }
 
 export interface SongsQuery {

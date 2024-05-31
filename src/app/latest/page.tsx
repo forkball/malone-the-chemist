@@ -97,7 +97,7 @@ export default async function Latest() {
       <div className="flex flex-row gap-4 justify-center block md:hidden h-32 md:h-56 pt-10">
         {renderIcons()}
       </div>
-      {mediaLinks.length > 0 && (
+      {mediaLinks && (
         <div className="pt-12 content flex flex-col w-full items-center">
           <h2 className="text-6xl text-black font-bebas text-center md:text-left mb-8">
             MEDIA
