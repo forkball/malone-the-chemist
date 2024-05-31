@@ -11,6 +11,7 @@ export async function fetchGraphQL(query: string): Promise<ContentFetch> {
           Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
         },
         body: JSON.stringify({ query }),
+        next: { revalidate: 3600 },
       }
     );
     return await response.json();
