@@ -75,7 +75,7 @@ export default async function Latest() {
       id="home"
       className={
         "flex min-h-screen flex-col relative overflow-hidden \
-        bg-gradient-to-r from-primary to-secondary items-center justify-center \
+        bg-gradient-to-r from-primary to-secondary items-center \
         px-12 lg:px-0"
       }
     >
