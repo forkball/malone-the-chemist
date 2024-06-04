@@ -79,7 +79,7 @@ export default async function Latest() {
         px-12 lg:px-0"
       }
     >
-      <div className="content flex flex-col items-center mt-24 w-full">
+      <div className="content flex flex-col items-center mt-20 w-full">
         <div className="flex flex-col w-full mb-8 gap-2 justify-center items-center">
           <h1 className="text-8xl text-black font-bebas text-center">
             {title}
