@@ -49,22 +49,22 @@ export default async function Home() {
     <div className="flex flex-col h-48 md:h-96 w-96 shrink-0 px-12 lg:px-0 justify-center">
       <h2 className="font-bebas text-4xl text-white mb-4">LISTEN TO ME</h2>
       <ol className="flex flex-col gap-2 text-white font-bebas text-2xl">
-        <li>
+        <li className="hover:underline">
           <a href={links.spotify} target="_blank">
             SPOTIFY
           </a>
         </li>
-        <li>
+        <li className="hover:underline">
           <a href={links.apple_music} target="_blank">
             APPLE MUSIC
           </a>
         </li>
-        <li>
+        <li className="hover:underline">
           <a href={links.soundcloud} target="_blank">
             SOUNDCLOUD
           </a>
         </li>
-        <li>
+        <li className="hover:underline">
           <a href={links.youtube} target="_blank">
             YOUTUBE
           </a>
@@ -80,7 +80,7 @@ export default async function Home() {
         className="w-full flex flex-row gap-4 overflow-x-scroll md:overflow-x-visible pb-2"
       >
         {albums.map((album) => (
-          <div key={album.id} className="album w-48 h-48 grow-0 shrink-0">
+          <div key={album.id} className="album w-48 h-48 grow-0 shrink-0 border-2 p-1">
             <Link
               href={`https://open.spotify.com/album/${album.id}`}
               target="_blank"
@@ -119,7 +119,7 @@ export default async function Home() {
             width={720}
             height={420}
             src={`https://www.youtube.com/embed/${id.videoId}`}
-            className="md:w-3/4"
+            className="md:w-3/4 border-2 p-1"
           ></iframe>
           ))}
         </div>
@@ -135,7 +135,7 @@ export default async function Home() {
       }
     >
       <VideoBackground />
-      <div className={`z-10 flex flex-col gap-12 w-full items-center mt-6 `}>
+      <div className={`z-10 flex flex-col gap-12 w-full items-center mt-6`}>
         {renderLanding()}
         <Divider height={"h-56"} />
         <div className="content flex flex-col md:flex-row md:items-center w-full gap-12 md:gap-0 py-4 bg-opacity-50 md:bg-opacity-0">
