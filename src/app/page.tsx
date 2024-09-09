@@ -13,15 +13,17 @@ import "./styles.scss";
 
 export default async function Home() {
   const albums = await fetchRecentReleases();
-  const youtubeReleases = await fetchRecentVideos();
+  const youtubeReleases = (await fetchRecentVideos()).filter((video) =>
+    video.id.kind.includes("video")
+  );
 
   const renderPhotoBg = () => {
-    const num = Math.max(0,Math.ceil(youtubeReleases?.length / 3));
+    const num = Math.max(0, Math.ceil(youtubeReleases?.length / 3));
 
     const result = [];
 
     for (var i = 0; i < num; i++) {
-      result.push(<PhotoBackground key={`bg-image-${i}`}className={"mt-8"} />);
+      result.push(<PhotoBackground key={`bg-image-${i}`} className={"mt-8"} />);
     }
 
     return result;
@@ -80,7 +82,10 @@ export default async function Home() {
         className="w-full flex flex-row gap-4 overflow-x-scroll md:overflow-x-visible pb-2"
       >
         {albums.map((album) => (
-          <div key={album.id} className="album w-48 h-48 grow-0 shrink-0 border-2 p-1">
+          <div
+            key={album.id}
+            className="album w-48 h-48 grow-0 shrink-0 border-2 p-1"
+          >
             <Link
               href={`https://open.spotify.com/album/${album.id}`}
               target="_blank"
@@ -113,14 +118,14 @@ export default async function Home() {
           WHAT I&apos;M UP TO
         </h2>
         <div className="flex flex-col gap-8 w-full items-center mt-10">
-          {youtubeReleases?.map(({id}) => (
+          {youtubeReleases?.map(({ id }) => (
             <iframe
-            key={id.videoId}
-            width={720}
-            height={420}
-            src={`https://www.youtube.com/embed/${id.videoId}`}
-            className="md:w-3/4 border-2 p-1"
-          ></iframe>
+              key={id.videoId}
+              width={720}
+              height={420}
+              src={`https://www.youtube.com/embed/${id.videoId}`}
+              className="md:w-3/4 border-2 p-1"
+            ></iframe>
           ))}
         </div>
       </div>

@@ -2,6 +2,7 @@ interface YoutubeRelease {
     kind: string;
     etag: string;
     id: {
+        kind: string;
         videoId: string;
     }
     snippet: {
