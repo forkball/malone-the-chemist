@@ -84,7 +84,7 @@ export default async function Home() {
         {albums.map((album) => (
           <div
             key={album.id}
-            className="album w-48 h-48 grow-0 shrink-0 border-2 p-1"
+            className="album w-48 h-48 grow-0 shrink-0"
           >
             <Link
               href={`https://open.spotify.com/album/${album.id}`}
@@ -124,7 +124,7 @@ export default async function Home() {
               width={720}
               height={420}
               src={`https://www.youtube.com/embed/${id.videoId}`}
-              className="md:w-3/4 border-2 p-1"
+              className="md:w-3/4 w-full"
             ></iframe>
           ))}
         </div>
