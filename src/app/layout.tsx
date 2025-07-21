@@ -24,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bebas.variable}`}>
-        <Navigation />
         {children}
         <Footer />
       </body>
