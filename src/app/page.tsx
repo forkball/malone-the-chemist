@@ -13,9 +13,7 @@ import "./styles.scss";
 
 export default async function Home() {
   const albums = await fetchRecentReleases();
-  const youtubeReleases = (await fetchRecentVideos()).filter((video) =>
-    video.id.kind.includes("video")
-  );
+  const youtubeReleases = (await fetchRecentVideos())
 
   const renderPhotoBg = () => {
     const num = Math.max(0, Math.ceil(youtubeReleases?.length / 3));
@@ -51,23 +49,23 @@ export default async function Home() {
     <div className="flex flex-col h-48 md:h-96 w-96 shrink-0 px-12 lg:px-0 justify-center">
       <h2 className="font-bebas text-4xl text-white mb-4">LISTEN TO ME</h2>
       <ol className="flex flex-col gap-2 text-white font-bebas text-2xl">
-        <li className="hover:underline">
-          <a href={links.spotify} target="_blank">
+        <li>
+          <a href={links.spotify} target="_blank" className="hover:underline">
             SPOTIFY
           </a>
         </li>
-        <li className="hover:underline">
-          <a href={links.apple_music} target="_blank">
+        <li>
+          <a href={links.apple_music} target="_blank" className="hover:underline">
             APPLE MUSIC
           </a>
         </li>
-        <li className="hover:underline">
-          <a href={links.soundcloud} target="_blank">
+        <li>
+          <a href={links.soundcloud} target="_blank" className="hover:underline">
             SOUNDCLOUD
           </a>
         </li>
-        <li className="hover:underline">
-          <a href={links.youtube} target="_blank">
+        <li>
+          <a href={links.youtube} target="_blank" className="hover:underline">
             YOUTUBE
           </a>
         </li>
@@ -105,6 +103,7 @@ export default async function Home() {
   );
 
   const renderVideoFeed = () => (
+    youtubeReleases.length > 0 && (
     <div className="flex bg-gradient-to-r from-primary to-secondary w-full justify-center relative">
       <div className="flex flex-col absolute">{renderPhotoBg()}</div>
       <div
@@ -128,8 +127,9 @@ export default async function Home() {
             ></iframe>
           ))}
         </div>
+        </div>
       </div>
-    </div>
+    )
   );
 
   return (
