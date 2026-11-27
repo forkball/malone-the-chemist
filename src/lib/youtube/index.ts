@@ -32,7 +32,6 @@ async function fetchLongFormUploads(): Promise<YoutubeRelease[]> {
 
   const releases = playlist.items
     .filter((item: any) => item.status?.privacyStatus === "public")
-    .slice(0, MAX_VIDEOS)
     .map((item: any) =>
       toRelease(
         item.contentDetails.videoId,
@@ -40,7 +39,9 @@ async function fetchLongFormUploads(): Promise<YoutubeRelease[]> {
         item.snippet,
         item.contentDetails.videoPublishedAt
       )
-    );
+    )
+    .sort(newestFirst)
+    .slice(0, MAX_VIDEOS);
 
   // An empty result is more likely the undocumented playlist misbehaving
   // than a channel with no videos, so let the fallback have a go.
@@ -58,22 +59,17 @@ async function fetchUploadsExcludingShorts(): Promise<YoutubeRelease[]> {
   let pageToken: string | undefined;
 
   for (let page = 0; page < MAX_UPLOAD_PAGES && releases.length < MAX_VIDEOS; page++) {
-    const playlist = await youtubeGet("playlistItems", {
-      part: "contentDetails",
-      playlistId: channelPlaylistId("UU"),
-      maxResults: "50",
-      ...(pageToken && { pageToken }),
-    });
+    let result: { videos: any[]; nextPageToken?: string };
+    try {
+      result = await fetchUploadsPage(pageToken);
+    } catch (error) {
+      // Keep what earlier pages found rather than losing it all.
+      if (releases.length === 0) throw error;
+      console.error("[youtube] Stopped paging uploads early:", error);
+      break;
+    }
 
-    const videoIds = playlist.items.map((item: any) => item.contentDetails.videoId);
-    if (videoIds.length === 0) break;
-
-    const details = await youtubeGet("videos", {
-      part: "contentDetails,snippet,status",
-      id: videoIds.join(","),
-    });
-
-    for (const video of details.items) {
+    for (const video of result.videos) {
       const isPublic = video.status?.privacyStatus === "public";
       const isLongEnough = parseDuration(video.contentDetails.duration) >= MIN_DURATION_SECONDS;
       const isTaggedShort = /#shorts\b/i.test(`${video.snippet.title} ${video.snippet.description}`);
@@ -83,11 +79,36 @@ async function fetchUploadsExcludingShorts(): Promise<YoutubeRelease[]> {
       }
     }
 
-    pageToken = playlist.nextPageToken;
+    pageToken = result.nextPageToken;
     if (!pageToken) break;
   }
 
-  return releases.slice(0, MAX_VIDEOS);
+  return releases.sort(newestFirst).slice(0, MAX_VIDEOS);
+}
+
+async function fetchUploadsPage(pageToken?: string): Promise<{ videos: any[]; nextPageToken?: string }> {
+  const playlist = await youtubeGet("playlistItems", {
+    part: "contentDetails",
+    playlistId: channelPlaylistId("UU"),
+    maxResults: "50",
+    ...(pageToken && { pageToken }),
+  });
+
+  const videoIds = playlist.items.map((item: any) => item.contentDetails.videoId);
+  if (videoIds.length === 0) return { videos: [] };
+
+  const details = await youtubeGet("videos", {
+    part: "contentDetails,snippet,status",
+    id: videoIds.join(","),
+  });
+
+  return { videos: details.items, nextPageToken: playlist.nextPageToken };
+}
+
+// Newest first by publish date, as the old search?order=date call returned
+// them. Neither playlist order nor videos.list order is guaranteed to be that.
+function newestFirst(a: YoutubeRelease, b: YoutubeRelease): number {
+  return (Date.parse(b.snippet.publishedAt) || 0) - (Date.parse(a.snippet.publishedAt) || 0);
 }
 
 async function youtubeGet(resource: string, params: Record<string, string>) {

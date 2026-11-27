@@ -21,7 +21,8 @@ export default async function Home() {
     const result = [];
 
     for (var i = 0; i < num; i++) {
-      result.push(<PhotoBackground key={`bg-image-${i}`} className={"mt-8"} />);
+      // shrink-0: the wrapper has a fixed height now, and the collages must clip, not squash.
+      result.push(<PhotoBackground key={`bg-image-${i}`} className={"mt-8 shrink-0"} />);
     }
 
     return result;
