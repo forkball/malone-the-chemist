@@ -21,7 +21,8 @@ export default async function Home() {
     const result = [];
 
     for (var i = 0; i < num; i++) {
-      result.push(<PhotoBackground key={`bg-image-${i}`} className={"mt-8"} />);
+      // shrink-0: the wrapper has a fixed height now, and the collages must clip, not squash.
+      result.push(<PhotoBackground key={`bg-image-${i}`} className={"mt-8 shrink-0"} />);
     }
 
     return result;
@@ -41,7 +42,8 @@ export default async function Home() {
         />
         <span className="text-4xl">THE CHEMIST</span>
       </h1>
-      <LandingCTA ctaId="what-im-up-to" />
+      {/* The video section is hidden when there are no videos, so there'd be nothing to scroll to. */}
+      {youtubeReleases.length > 0 && <LandingCTA ctaId="what-im-up-to" />}
     </div>
   );
 
@@ -104,8 +106,9 @@ export default async function Home() {
 
   const renderVideoFeed = () => (
     youtubeReleases.length > 0 && (
-    <div className="flex bg-gradient-to-r from-primary to-secondary w-full justify-center relative">
-      <div className="flex flex-col absolute">{renderPhotoBg()}</div>
+    <div className="flex bg-gradient-to-r from-primary to-secondary w-full justify-center relative pb-8">
+      {/* Stop the collage above the section's bottom padding, leaving a strip of gradient before the footer. */}
+      <div className="flex flex-col absolute top-0 bottom-8 overflow-hidden">{renderPhotoBg()}</div>
       <div
         id="what-im-up-to"
         className="content flex flex-col items-center w-full z-10 -mt-56 mb-0 md:mb-12 pt-24"

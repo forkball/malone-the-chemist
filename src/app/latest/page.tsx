@@ -76,7 +76,7 @@ export default async function Latest() {
       className={
         "flex min-h-screen flex-col relative overflow-hidden \
         bg-gradient-to-r from-primary to-secondary items-center \
-        px-12 lg:px-0"
+        px-12 lg:px-0 pb-8"
       }
     >
       <div className="content flex flex-col items-center mt-20 w-full">
